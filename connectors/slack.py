@@ -22,6 +22,15 @@ def handle_dm(event, say):
         say(f"You said: {event['text']}")
 
 
+def send_file(channel, file_path, title=None, initial_comment=None):
+    return app.client.files_upload_v2(
+        channel=channel,
+        file=file_path,
+        title=title,
+        initial_comment=initial_comment,
+    )
+
+
 if __name__ == "__main__":
     SocketModeHandler(
         app,
